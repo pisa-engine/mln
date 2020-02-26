@@ -5,14 +5,14 @@
 int main(int argc, char const *argv[])
 {
 
-    std::vector<uint32_t> input{1, 2,3,4,5};
-    std::vector<uint8_t> out(4* input.size());
+    std::vector<uint32_t> input{1, 2, 3, 2, 1, 2, 1, 2, 8, 2, 9, 2};
+    std::vector<uint32_t> out(input.size());
 
-    size_t n;
-    mln::encode(input.data(), input.size(), out.data(), n);
-
+    mln<8>::encode(input.data(), input.size(), out.data());
+    for (auto &&v : out) {
+        std::cout << v << " ";
+    }
+    std::cout << std::endl;
     std::vector<uint32_t> decoded(input.size());
-    size_t n_decoded;
-    mln::decode(out.data(), decoded.data(), out.size(), n_decoded);
-
+    mln<8>::decode(out.data(), decoded.data(), out.size());
 }
