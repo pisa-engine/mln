@@ -23,12 +23,14 @@ class mln {
         Table t{};
         for (int i = 0; i < freq_table.size(); ++i) {
             auto freq_row = freq_table[i];
-            std::array<uint8_t, Q> idx{};
-            std::iota(idx.begin(), idx.end(), 1);
+            std::array<uint8_t, Q> idx;
+            std::iota(idx.begin(), idx.end(), 0);
             std::stable_sort(idx.begin(), idx.end(), [&](size_t i1, size_t i2) {
-                return freq_table[i1] > freq_table[i2];
+                return freq_row[i1] > freq_row[i2];
             });
-            t[i] = idx;
+            for (int j = 0; j < freq_row.size(); ++j) {
+                t[i][idx[j]] = j + 1;
+            }
         }
         return t;
     }
