@@ -3,7 +3,7 @@
 An implementation of the **Most-Likely-Next** algorithm as described in *Hao Yan, Shuai Ding, and Torsten Suel. 2009. Inverted index compression and query processing with optimized document ordering. In Proceedings of the 18th international conference on World wide web.*
 
 ## Description
-MLN is used to transform numbers to smaller values. MLN uses a *QxQ* table that stores for each value which values are most likely to follow.  When applying MLN, we replace each value with its rank in the array indexed by the value of its predecessor. For values >= Q, no tranformation is applied.
+MLN is used to transform numbers to smaller values. MLN uses a *QxQ* table that stores for each value which values are most likely to follow.  When applying MLN, we replace each value with its rank in the array indexed by the value of its predecessor. For values > Q, no tranformation is applied.
 
 ## Usage
 
